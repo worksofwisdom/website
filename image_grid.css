@@ -1,0 +1,113 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Courier New', Courier, monospace, sans-serif;
+}
+
+body {
+  margin: 0 auto;
+  font-family: 'Courier New', Courier, monospace, sans-serif;
+  font-size: 1em;
+}
+
+/* Style the top navigation bar */
+.topnav {
+  display: flex;
+  justify-content: flex-end;
+  overflow: hidden;
+  background-color: #333;
+  padding: 2%;
+}
+
+/* Style the topnav links */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+
+/* Dad photo sequence */
+.photo-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-rows: auto;
+  grid-gap: 5px;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-bottom: 5%;
+  background-color: #ddd;
+}
+
+
+/* Photo container */
+.magic-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-rows: auto;
+  grid-gap: 40px;
+  padding-left: 10%;
+  padding-right: 10%;
+  max-width: 90%;
+}
+
+
+/* Styles */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+
+img {
+  width: 100%;
+  margin: 0 auto;
+  -o-object-fit: contain;
+  object-fit: scale-down;
+  padding-bottom: 5%;
+  /* background-color: red; */
+}
+
+
+.box {
+  padding: 2rem;
+  border: 1px solid rgb(209, 209, 209);
+  display: grid;
+  place-items: center;
+  border-radius: .3rem;
+  box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+}
+
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+  .column {
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
