@@ -8,8 +8,8 @@ html {
   scroll-behavior: smooth;
 }
 
-:focus:not(:focus-visible) { 
-  outline: none; 
+:focus:not(:focus-visible) {
+  outline: none;
 }
 
 
@@ -18,8 +18,8 @@ html {
 \*------------------------------------*/
 
 body {
-  
-  margin: 0;
+
+  margin: 0 auto;
   font-family: 'Open Sans', sans-serif;
   font-size: 1em;
   background-color: rgb(255, 255, 255);
@@ -32,8 +32,9 @@ body {
 h1 {
   color: 333333;
   font-size: 3em;
-  margin-top: 2%;
-  
+  /* margin-top: 2%; */
+  /* padding-top: 3%; */
+
 }
 
 h2 {
@@ -63,33 +64,58 @@ h4 {
 header {
   margin: 0 auto;
   max-width: 80%;
-  
+
 }
 
 .grid-container {
   margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  justify-content: center;
+  align-items: center;
+  /* max-width: 80%; */
+  padding-bottom: 3%;
 }
 
 .grid-item1 {
-  grid-area: 1 / 1/ 1 / 4;
-
+  /* grid-area: 1 / 1/ 1 / 4; */
+  grid-area: 1 / 1 / 1 / 1;
+  /*grid-row-start / grid-column-start / grid-row-end / grid-column-end*/
+  justify-self: center;
+  align-self: center;
+  max-width: 100%;
+  letter-spacing: 6px;
 }
 
-.grid-item2 {
-  grid-area: 2 / 1 / 2 / 3;  /*grid-row-start / grid-column-start / grid-row-end / grid-column-end*/
+.grid-item2,
+img {
+  grid-area: 2 / 1 / 2 / 2;
+  /*grid-row-start / grid-column-start / grid-row-end / grid-column-end*/
   object-position: center;
+  text-align: center;
+  object-fit: cover;
+  margin: 0 auto;
 }
 
 .grid-item3 {
-  /* background-color: darkslategrey; */
+
+  grid-area: 2 / 2 / 2 / 4;
+  /*grid-row-start / grid-column-start / grid-row-end / grid-column-end*/
+
   background-color: rgb(24, 24, 24);
   color: white;
-  grid-area: 2 / 2 / 3 / 4;  /*grid-row-start / grid-column-start / grid-row-end / grid-column-end*/
-  padding: 10% 20% 5% 20%;
-margin: 0 auto;
- 
+
+  /* padding: 5% 15% 5% 15%; */
+  margin: 0 auto;
+  padding: 8% 0 3% 0;
+  /* padding-top: 5%; */
+  vertical-align: middle;
+  height: 300px;
+  width: 500px;
+  justify-self: center;
+  align-self: center;
+
+
 }
 
 .current-job {
@@ -99,61 +125,77 @@ margin: 0 auto;
   letter-spacing: .5pt;
 }
 
+
+
 /*------------------------------------*\
-  #SECTION-Top navigation bar
+/* Hamburger menu */
+/* ----------------------------------- */
+
+.navigation {
+ 
+  position: sticky;
+  top: 0;
+}
+
+#hamnav {
+  max-width: 70%;
+  margin: 0 auto;
+  text-align: center;
+  /* margin-top: -8px; */
+  background: rgb(100, 100, 100);
+  
+  padding: 0 5% 0 5%;
+
+}
+
+/* Hide Hamburger */
+#hamnav label,
+#hamburger {
+  display: none;
+
+
+}
+
+/* Horizontal Menu Items */
+#hamitems {
+  display: flex;
+
+  justify-content: space-evenly;
+  letter-spacing: 4px;
+  font-weight: bold;
+
+}
+
+#hamitems a {
+
+  width: 20%;
+  /* 100% / 5 tabs = 20% */
+  padding: 15px;
+  color: white;
+  /* text-decoration: none; */
+  text-align: center;
+}
+
+#hamitems a:hover {
+  background: #155c72;
+}
+
+
+
+/*------------------------------------*\
+  #SECTION-Main
 \*------------------------------------*/
 
-.topnav {
-  display: flex;
-  justify-content: space-evenly;
-  overflow: hidden;
-  /* background-color: rgb(226, 225, 225); */
-  padding: 2% 0;
-  max-width: 80%;
-  margin: 0 auto;
-}
-
-/* Links - Topnav */
-.topnav a {
-  float: left;
-  display: block;
-  color: #131212;
-  font-size: 1.3em;
-  font-weight: bold;
-  text-align: center;
-  padding-left: 14px 16px;
-  padding-right: 14px 16px;
-  text-decoration: none;
-
-}
-
-/* Change color on hover */
-.topnav a:hover {
-  background-color:darkslategrey;
-  color: rgb(245, 244, 244);
-  padding: 4px 15px 4px 15px;
-  border-radius: 5px;
-  /* border-radius: 15px; */
-}
-
-/* .subtitle { */
-  /* padding-top: 10%; */
-  /* text-align: center; */
-/* } */
-
-/* .workPlace { */
-  /* text-align: center; */
-/* } */
-
-
 main {
-  max-width: 80%;
+  max-width: 90%;
   margin: 0 auto;
 }
 
 
+/*------------------------------------*\
+  #SECTION-RSS feed
+\*------------------------------------*/
 
-/* RSS feed */
 .news-feed {
   /* background-color: #7996a0; */
   height: 230px;
@@ -162,7 +204,7 @@ main {
   /* width: 80%; */
   margin: 0 auto;
   padding-top: 5%;
-  
+
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -172,8 +214,10 @@ main {
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .news-feed {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 
@@ -186,10 +230,10 @@ main {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  
+
   /* max-width: 85%; */
   /* vertical-align: middle; */
-  justify-content: center; 
+  justify-content: center;
   align-items: center;
   /* text-align: center; */
   margin: 0 auto;
@@ -199,13 +243,13 @@ main {
 iframe {
   padding: 5% 2% 5% 2%;
 
-  
+
   width: 450px;
   height: 450px;
   margin-top: 25px;
   /* padding-top: 5%; */
   object-fit: contain;
-  
+
   /* border: 1px solid black; */
   /* width: 30%; */
 }
@@ -217,8 +261,10 @@ iframe::-webkit-scrollbar {
 
 /* Hide scrollbar for IE, Edge and Firefox */
 iframe {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 
@@ -226,13 +272,19 @@ iframe {
 /*------------------------------------*\
   #SECTION-Biography
 \*------------------------------------*/
+/* Pete bio section */
+.biography {
+  padding: 3%;
+  font-size: 1.1em;
+  max-width: 70%;
+  margin: 0 auto;
+}
+
 
 .biography .list-items {
-  max-width: 80%;
-
+  
   display: flex;
-  flex-direction: column;
-padding
+  flex-direction: row;
 
 }
 
@@ -258,12 +310,13 @@ li {
 }
 
 hr {
-  border-top: 4px solid #50554f;
+  border-top: 4px solid #008CBA;
   margin-left: 10%;
   margin-right: 10%;
   /* margin-bottom: 5%; */
-  max-width: 90%;
+  /* max-width: auto; */
 }
+
 
 
 a {
@@ -313,52 +366,59 @@ p {
 
 
 .spacer {
-  height: 50px;
+  height: 20px;
 }
 
-.tempSpacer {
+/* .tempSpacer {
   height: 75px;
+} */
+
+/* Blog links */
+.blog-tag-link {
+  background-color: rgba(46, 130, 151, 0.452);
+  width: 70%;
+  margin: 2% auto;
+ 
+  padding: 3% 0 3% 0;
+  border-radius: 10px;
+  box-shadow: 1px gray;
+  box-shadow: 5px 5px 5px #888888;
+
+}
+/* Blog heading text */
+.blog-tag-heading {
+
+
 }
 
 
 footer {
   display: flex;
   flex-direction: row;
-  /* justify-content: space-around; */
   align-items: center;
-  padding: 0 0 1% 0;
-
+  padding: 3% 0 1% 0;
 }
+
 /* Footer Styles*/
 .footer {
-  /* display: flex; */
-  /* justify-content: space-around; */
   margin: 0 auto;
   width: 100%;
   background-color: rgb(0, 0, 0);
-  /* padding: 20px 0 20px 0; */
-  
- 
 }
 
 /* Footer nav links Styles */
 .footer_nav {
-display: flex;
-flex-direction: row;
-align-items: center;
-justify-content: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
   padding: 10px;
-
 }
 
 
 .footer_nav a {
-  /* float: left;
-    display: block; */
   color: #f2f2f2;
- 
-  /* text-align: center; */
   padding: 40px;
   text-decoration: none;
 }
@@ -372,6 +432,7 @@ justify-content: center;
   padding: 20px;
   border-radius: 5px;
 }
+
 /* 
 .copyright {
   display: flex;
@@ -380,9 +441,6 @@ align-items: center;
 justify-content: center;
   color: white;
   font-size: .5em;
-
-
-
 }
 */
 
@@ -395,8 +453,8 @@ justify-content: center;
   justify-content: center;
   color: white;
   font-size: .7em;
-
 }
+
 /* a[href*="pete@worksofwisdom.com"] {
   
 }  */
@@ -410,13 +468,12 @@ justify-content: center;
 
 
 .social-links {
-  display: flex; 
+  display: flex;
   justify-content: space-evenly;
   align-items: center;
   padding-left: 3%;
   /* padding-top: 3%; */
   text-decoration: none;
-  
 }
 
 .social-btn {
@@ -429,7 +486,6 @@ justify-content: center;
   margin: 5px;
   margin-left: 25px;
   transition: 1s;
-  
 }
 
 .social-btn span {
@@ -437,25 +493,20 @@ justify-content: center;
   overflow: hidden;
   transition: 1s;
   text-align: center;
-  
 }
 
 .social-btn:hover {
   width: 150px;
   border-radius: 5px;
-  
-
 }
 
 .social-btn:hover span {
   padding: 12px;
   width: max-content;
- 
 }
 
 #twitter svg {
   fill: #1da1f2;
-  
 }
 
 #linkedin svg {
